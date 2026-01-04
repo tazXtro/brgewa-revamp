@@ -1,65 +1,123 @@
-import Image from "next/image";
+import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import Marquee from "@/components/landing/Marquee";
+import ServicesSection from "@/components/landing/ServicesSection";
+import StatsSection from "@/components/landing/StatsSection";
+import DoctorsSection from "@/components/landing/DoctorsSection";
+import NewsSection from "@/components/landing/NewsSection";
+import GallerySection from "@/components/landing/GallerySection";
+import CTASection from "@/components/landing/CTASection";
+import Footer from "@/components/landing/Footer";
+import ImageCarousel from "@/components/landing/ImageCarousel";
+import PhotoScroll from "@/components/landing/PhotoScroll";
+
+const announcements = [
+  "📢 বিনামূল্যে স্বাস্থ্য ক্যাম্প - ১৫ জানুয়ারি ২০২৬",
+  "🎓 ২০২৬ সালের শিক্ষাবৃত্তির আবেদন গ্রহণ চলছে",
+  "🏥 নতুন হৃদরোগ বিভাগ চালু হয়েছে",
+  "📞 হেল্পলাইন: ২২২২৪০১৮৯, ২২২২৪০১৯০",
+  "🗓️ বার্ষিক সাধারণ সভা - ২০ জানুয়ারি ২০২৬",
+];
+
+const heroImages = [
+  {
+    id: "1",
+    title: "Welcome to BRGEWA Hospital",
+    titleBn: "বিআরজিইডাব্লিউএ হাসপাতালে স্বাগতম",
+    category: "About Us",
+  },
+  {
+    id: "2",
+    title: "Free Health Camp 2025",
+    titleBn: "বিনামূল্যে স্বাস্থ্য ক্যাম্প ২০২৫",
+    category: "Events",
+  },
+  {
+    id: "3",
+    title: "Scholarship Distribution Ceremony",
+    titleBn: "শিক্ষাবৃত্তি বিতরণ অনুষ্ঠান",
+    category: "Welfare",
+  },
+  {
+    id: "4",
+    title: "Annual General Meeting 2025",
+    titleBn: "বার্ষিক সাধারণ সভা ২০২৫",
+    category: "Meetings",
+  },
+];
+
+const facilityPhotos = [
+  { id: "1", title: "Reception Area", titleBn: "রিসেপশন এরিয়া", category: "Facility" },
+  { id: "2", title: "Consultation Room", titleBn: "পরামর্শ কক্ষ", category: "Facility" },
+  { id: "3", title: "Waiting Lounge", titleBn: "অপেক্ষা কক্ষ", category: "Facility" },
+  { id: "4", title: "Laboratory", titleBn: "ল্যাবরেটরি", category: "Facility" },
+  { id: "5", title: "Pharmacy", titleBn: "ফার্মেসি", category: "Facility" },
+  { id: "6", title: "Medical Store", titleBn: "মেডিকেল স্টোর", category: "Facility" },
+];
+
+const eventPhotos = [
+  { id: "1", title: "Health Camp 2025", titleBn: "স্বাস্থ্য ক্যাম্প ২০২৫", category: "Health Camp" },
+  { id: "2", title: "Scholarship Award", titleBn: "শিক্ষাবৃত্তি প্রদান", category: "Welfare" },
+  { id: "3", title: "Committee Meeting", titleBn: "কমিটি সভা", category: "Meeting" },
+  { id: "4", title: "Cultural Program", titleBn: "সাংস্কৃতিক অনুষ্ঠান", category: "Event" },
+  { id: "5", title: "Blood Donation", titleBn: "রক্তদান কর্মসূচি", category: "Health Camp" },
+  { id: "6", title: "Eye Camp", titleBn: "চক্ষু ক্যাম্প", category: "Health Camp" },
+  { id: "7", title: "Eid Reunion", titleBn: "ঈদ মিলনমেলা", category: "Event" },
+  { id: "8", title: "Independence Day", titleBn: "স্বাধীনতা দিবস", category: "Event" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen">
+      <Navbar />
+
+      {/* Marquee Announcement */}
+      <Marquee items={announcements} speed={15} />
+
+      <HeroSection />
+
+      {/* Featured Image Carousel */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-6">
+          <ImageCarousel
+            images={heroImages}
+            title="Latest Highlights"
+            titleBn="সর্বশেষ হাইলাইটস"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <ServicesSection />
+
+      {/* Facility Photos Scroll */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-6">
+          <PhotoScroll
+            photos={facilityPhotos}
+            title="Our Facilities"
+            titleBn="আমাদের সুবিধাসমূহ"
+          />
         </div>
-      </main>
-    </div>
+      </section>
+
+      <StatsSection />
+      <DoctorsSection />
+
+      {/* Event Photos Scroll */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <PhotoScroll
+            photos={eventPhotos}
+            title="Events & Programs"
+            titleBn="অনুষ্ঠান ও কার্যক্রম"
+          />
+        </div>
+      </section>
+
+      <NewsSection />
+      <GallerySection />
+      <CTASection />
+      <Footer />
+    </main>
   );
 }
