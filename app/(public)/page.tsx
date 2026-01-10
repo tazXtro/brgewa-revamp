@@ -1,7 +1,8 @@
 
 "use client";
 
-import Navbar from "@/components/landing/Navbar";
+
+
 import HeroSection from "@/components/landing/HeroSection";
 import Marquee from "@/components/landing/Marquee";
 import ServicesSection from "@/components/landing/ServicesSection";
@@ -10,7 +11,8 @@ import DoctorsSection from "@/components/landing/DoctorsSection";
 import NewsSection from "@/components/landing/NewsSection";
 import GallerySection from "@/components/landing/GallerySection";
 import CTASection from "@/components/landing/CTASection";
-import Footer from "@/components/landing/Footer";
+
+
 import ImageCarousel from "@/components/landing/ImageCarousel";
 import PhotoScroll from "@/components/landing/PhotoScroll";
 import VideoSection from "@/components/landing/VideoSection";
@@ -71,7 +73,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Navbar />
+
+
 
       {/* Marquee Announcement */}
       <Marquee items={announcements} speed={15} />
@@ -122,7 +125,8 @@ export default function Home() {
       <GallerySection />
       <CTASection />
       <MapSection />
-      <Footer />
+
+
     </main>
   );
 }

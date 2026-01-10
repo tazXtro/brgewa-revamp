@@ -28,10 +28,10 @@ export default function Navbar() {
             label: t.navbar.about,
             href: "/about",
             children: [
-                { label: language === 'en' ? "History" : "সমিতির ইতিহাস", href: "/about/history" },
-                { label: language === 'en' ? "Mission & Vision" : "লক্ষ্য ও উদ্দেশ্য", href: "/about/mission" },
-                { label: language === 'en' ? "Executive Committee" : "কার্যনির্বাহী কমিটি", href: "/about/committee" },
-                { label: language === 'en' ? "Constitution" : "সমিতির গঠনতন্ত্র", href: "/about/constitution" },
+                { label: language === 'en' ? "History" : "সমিতির ইতিহাস", href: "/about?section=history" },
+                { label: language === 'en' ? "Mission & Vision" : "লক্ষ্য ও উদ্দেশ্য", href: "/about?section=mission" },
+                { label: language === 'en' ? "Executive Committee" : "কার্যনির্বাহী কমিটি", href: "/about?section=committee" },
+                { label: language === 'en' ? "Constitution" : "সমিতির গঠনতন্ত্র", href: "/about?section=constitution" },
             ],
         },
         {
@@ -40,8 +40,6 @@ export default function Navbar() {
             children: [
                 { label: language === 'en' ? "Fees and Tests" : "ফি ও পরীক্ষা", href: "/medical-services" },
                 { label: language === 'en' ? "Doctors List" : "চিকিৎসক তালিকা", href: "/doctors" },
-                { label: language === 'en' ? "Doctor Fees" : "চিকিৎসকদের ফি", href: "/doctor-fees" },
-                { label: language === 'en' ? "Medical Tests" : "মেডিকেল পরীক্ষা", href: "/medical-tests" },
             ],
         },
         {

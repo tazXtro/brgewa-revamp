@@ -4,8 +4,8 @@ import { useLanguage } from "@/components/providers/LanguageContext";
 import { doctors } from "@/lib/doctorsData";
 import { Search, MapPin, Clock, Phone, Stethoscope, GraduationCap } from "lucide-react";
 import { useState } from "react";
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
+
+
 
 export default function DoctorsPage() {
     const { language } = useLanguage();
@@ -28,7 +28,8 @@ export default function DoctorsPage() {
 
     return (
         <main className="min-h-screen bg-background text-foreground">
-            <Navbar />
+
+
 
             {/* Header */}
             <section className="bg-primary/10 py-16">
@@ -65,8 +66,8 @@ export default function DoctorsPage() {
                                     key={spec}
                                     onClick={() => setSelectedSpecialty(spec)}
                                     className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-medium transition-colors ${selectedSpecialty === spec
-                                            ? "bg-primary text-primary-foreground"
-                                            : "bg-secondary text-secondary-foreground hover:bg-primary/20"
+                                        ? "bg-primary text-primary-foreground"
+                                        : "bg-secondary text-secondary-foreground hover:bg-primary/20"
                                         }`}
                                 >
                                     {spec}
@@ -149,7 +150,8 @@ export default function DoctorsPage() {
                 </div>
             </section>
 
-            <Footer />
+
+
         </main>
     );
 }
