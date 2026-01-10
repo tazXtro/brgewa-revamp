@@ -61,6 +61,23 @@ export const translations = {
             address: "Brahmanbaria, Bangladesh",
             rights: "© 2026 BRGEWA Hospital. All rights reserved.",
         },
+        newsEvents: {
+            title: "News & Events",
+            subtitle: "Stay updated with our latest news, events, and announcements",
+            filterAll: "All",
+            filterNews: "News",
+            filterEvents: "Events",
+            filterHealthCamps: "Health Camps",
+            filterAnnouncements: "Announcements",
+            readMore: "Read More",
+            noItems: "No items found in this category",
+            categories: {
+                news: "News",
+                event: "Event",
+                healthCamp: "Health Camp",
+                announcement: "Announcement",
+            }
+        },
     },
     bn: {
         navbar: {
@@ -123,6 +140,23 @@ export const translations = {
             contact_us: "যোগাযোগ",
             address: "ব্রাহ্মণবাড়িয়া, বাংলাদেশ",
             rights: "© ২০২৬ বিআরজিইডাব্লিউএ হাসপাতাল। সর্বস্বত্ব সংরক্ষিত।",
+        },
+        newsEvents: {
+            title: "খবর ও ইভেন্ট",
+            subtitle: "আমাদের সর্বশেষ খবর, ইভেন্ট এবং ঘোষণা সম্পর্কে আপডেট থাকুন",
+            filterAll: "সব",
+            filterNews: "খবর",
+            filterEvents: "ইভেন্ট",
+            filterHealthCamps: "স্বাস্থ্য ক্যাম্প",
+            filterAnnouncements: "ঘোষণা",
+            readMore: "আরও পড়ুন",
+            noItems: "এই বিভাগে কোন আইটেম পাওয়া যায়নি",
+            categories: {
+                news: "খবর",
+                event: "ইভেন্ট",
+                healthCamp: "স্বাস্থ্য ক্যাম্প",
+                announcement: "ঘোষণা",
+            }
         },
     },
 };
