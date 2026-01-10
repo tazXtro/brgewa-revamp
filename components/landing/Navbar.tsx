@@ -2,61 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
-
-const navItems = [
-    {
-        label: "Home",
-        labelBn: "হোম",
-        href: "/",
-    },
-    {
-        label: "About Us",
-        labelBn: "আমদের বিষয়",
-        href: "/about",
-        children: [
-            { label: "History", labelBn: "সমিতির ইতিহাস", href: "/about/history" },
-            { label: "Mission & Vision", labelBn: "লক্ষ্য ও উদ্দেশ্য", href: "/about/mission" },
-            { label: "Executive Committee", labelBn: "কার্যনির্বাহী কমিটি", href: "/about/committee" },
-            { label: "Constitution", labelBn: "সমিতির গঠনতন্ত্র", href: "/about/constitution" },
-        ],
-    },
-    {
-        label: "Medical Services",
-        labelBn: "চিকিৎসা সেবা",
-        href: "/medical-services",
-        children: [
-            { label: "Doctors List", labelBn: "চিকিৎসক তালিকা", href: "/doctors" },
-            { label: "Doctor Fees", labelBn: "চিকিৎসকদের ফি", href: "/doctor-fees" },
-            { label: "Medical Tests", labelBn: "মেডিকেল পরীক্ষা", href: "/medical-tests" },
-        ],
-    },
-    {
-        label: "Welfare Programs",
-        labelBn: "কল্যাণ কার্যক্রম",
-        href: "/welfare",
-        children: [
-            { label: "Scholarships", labelBn: "শিক্ষাবৃত্তি", href: "/scholarships" },
-            { label: "One-time Grants", labelBn: "এককালীন অনুদান", href: "/grants" },
-            { label: "Emergency Aid", labelBn: "জরুরী সহায়তা", href: "/emergency" },
-        ],
-    },
-    {
-        label: "Photo Gallery",
-        labelBn: "ফটোগ্যালারী",
-        href: "/gallery",
-    },
-    {
-        label: "Contact",
-        labelBn: "যোগাযোগ",
-        href: "/contact",
-    },
-];
+import { Menu, X, Phone, Mail, MapPin, ChevronDown, Globe } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageContext";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const { language, toggleLanguage, t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,6 +18,45 @@ export default function Navbar() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const navItems = [
+        {
+            label: t.navbar.home,
+            href: "/",
+        },
+        {
+            label: t.navbar.about,
+            href: "/about",
+            children: [
+                { label: language === 'en' ? "History" : "সমিতির ইতিহাস", href: "/about/history" },
+                { label: language === 'en' ? "Mission & Vision" : "লক্ষ্য ও উদ্দেশ্য", href: "/about/mission" },
+                { label: language === 'en' ? "Executive Committee" : "কার্যনির্বাহী কমিটি", href: "/about/committee" },
+                { label: language === 'en' ? "Constitution" : "সমিতির গঠনতন্ত্র", href: "/about/constitution" },
+            ],
+        },
+        {
+            label: t.navbar.services,
+            href: "/medical-services",
+            children: [
+                { label: language === 'en' ? "Fees and Tests" : "ফি ও পরীক্ষা", href: "/medical-services" },
+                { label: language === 'en' ? "Doctors List" : "চিকিৎসক তালিকা", href: "/doctors" },
+                { label: language === 'en' ? "Doctor Fees" : "চিকিৎসকদের ফি", href: "/doctor-fees" },
+                { label: language === 'en' ? "Medical Tests" : "মেডিকেল পরীক্ষা", href: "/medical-tests" },
+            ],
+        },
+        {
+            label: t.navbar.doctors,
+            href: "/doctors",
+        },
+        {
+            label: t.navbar.news,
+            href: "/news",
+        },
+        {
+            label: t.navbar.contact,
+            href: "/contact",
+        },
+    ];
 
     return (
         <>
@@ -81,9 +73,18 @@ export default function Navbar() {
                             <span>brgewa@gmail.com</span>
                         </a>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <MapPin size={14} />
-                        <span>৭৫/এ, রোড নং ৫/এ, ধানমন্ডি, ঢাকা-১২০৯</span>
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
+                            <MapPin size={14} />
+                            <span>৭৫/এ, রোড নং ৫/এ, ধানমন্ডি, ঢাকা-১২০৯</span>
+                        </div>
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 px-2 py-0.5 rounded text-xs font-medium transition-colors"
+                        >
+                            <Globe size={12} />
+                            <span>{language === 'en' ? 'বাংলা' : 'English'}</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -91,8 +92,8 @@ export default function Navbar() {
             {/* Main Navbar */}
             <nav
                 className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "bg-white/95 backdrop-blur-lg shadow-lg"
-                        : "bg-white"
+                    ? "bg-white/95 backdrop-blur-lg shadow-lg"
+                    : "bg-white"
                     }`}
             >
                 <div className="container mx-auto px-6">
@@ -124,8 +125,8 @@ export default function Navbar() {
                                     <Link
                                         href={item.href}
                                         className={`flex items-center gap-1 px-4 py-2 rounded-lg font-medium transition-colors ${activeDropdown === item.label
-                                                ? "text-primary bg-secondary"
-                                                : "text-foreground hover:text-primary hover:bg-secondary/50"
+                                            ? "text-primary bg-secondary"
+                                            : "text-foreground hover:text-primary hover:bg-secondary/50"
                                             }`}
                                     >
                                         {item.label}
@@ -143,9 +144,6 @@ export default function Navbar() {
                                                         className="block px-4 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
                                                     >
                                                         {child.label}
-                                                        <span className="block text-xs text-muted-foreground mt-0.5">
-                                                            {child.labelBn}
-                                                        </span>
                                                     </Link>
                                                 ))}
                                             </div>
@@ -179,6 +177,15 @@ export default function Navbar() {
                 {mobileMenuOpen && (
                     <div className="lg:hidden bg-white border-t border-border">
                         <div className="container mx-auto px-6 py-4 space-y-2">
+                            <div className="flex justify-end mb-4">
+                                <button
+                                    onClick={toggleLanguage}
+                                    className="flex items-center gap-2 bg-secondary px-3 py-1.5 rounded-lg text-sm font-medium text-primary"
+                                >
+                                    <Globe size={16} />
+                                    <span>{language === 'en' ? 'বাংলায় দেখুন' : 'Switch to English'}</span>
+                                </button>
+                            </div>
                             {navItems.map((item) => (
                                 <div key={item.label}>
                                     <Link

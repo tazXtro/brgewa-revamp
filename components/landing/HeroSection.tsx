@@ -3,58 +3,52 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
-
-const slides = [
-    {
-        id: 1,
-        title: "Welcome to BRGEWA",
-        titleBn: "বিআরজিইডাব্লিউএ-তে স্বাগতম",
-        subtitle: "Bangladesh Retired Government Employee Welfare Association",
-        subtitleBn: "বাংলাদেশ অবসরপ্রাপ্ত সরকারী কর্মচারী কল্যাণ সমিতি",
-        description: "Dedicated to serving retired government employees and their families with quality healthcare and welfare programs.",
-        cta: "Learn More",
-        ctaLink: "/about",
-        bgGradient: "from-emerald-600 via-emerald-500 to-teal-500",
-    },
-    {
-        id: 2,
-        title: "Quality Healthcare",
-        titleBn: "মানসম্মত স্বাস্থ্যসেবা",
-        subtitle: "Expert Doctors & Modern Facilities",
-        subtitleBn: "বিশেষজ্ঞ ডাক্তার এবং আধুনিক সুবিধা",
-        description: "Access quality medical care from experienced specialists in our well-equipped hospital.",
-        cta: "Our Services",
-        ctaLink: "/medical-services",
-        bgGradient: "from-teal-600 via-emerald-600 to-green-500",
-    },
-    {
-        id: 3,
-        title: "Welfare Programs",
-        titleBn: "কল্যাণ কার্যক্রম",
-        subtitle: "Supporting Our Members",
-        subtitleBn: "আমাদের সদস্যদের সহায়তা",
-        description: "Scholarships, medical aid, emergency support, and more for our valued members.",
-        cta: "View Programs",
-        ctaLink: "/welfare",
-        bgGradient: "from-green-600 via-emerald-500 to-teal-600",
-    },
-    {
-        id: 4,
-        title: "Join Our Community",
-        titleBn: "আমাদের সাথে যুক্ত হোন",
-        subtitle: "Become a Member Today",
-        subtitleBn: "আজই সদস্য হোন",
-        description: "Join over 12,000 members benefiting from our healthcare and welfare services.",
-        cta: "Register Now",
-        ctaLink: "/register",
-        bgGradient: "from-cyan-600 via-teal-500 to-emerald-600",
-    },
-];
+import { useLanguage } from "@/components/providers/LanguageContext";
 
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
+    const { language, t } = useLanguage();
+
+    const slides = [
+        {
+            id: 1,
+            title: language === 'en' ? "Welcome to BRGEWA" : "বিআরজিইডাব্লিউএ-তে স্বাগতম",
+            subtitle: language === 'en' ? "Bangladesh Retired Government Employee Welfare Association" : "বাংলাদেশ অবসরপ্রাপ্ত সরকারী কর্মচারী কল্যাণ সমিতি",
+            description: language === 'en' ? "Dedicated to serving retired government employees and their families with quality healthcare and welfare programs." : "অবসরপ্রাপ্ত সরকারী কর্মচারী এবং তাদের পরিবারের জন্য মানসম্মত স্বাস্থ্যসেবা এবং কল্যাণ কার্যক্রমে নিবেদিত।",
+            cta: language === 'en' ? "Learn More" : "আরও জানুন",
+            ctaLink: "/about",
+            bgGradient: "from-emerald-600 via-emerald-500 to-teal-500",
+        },
+        {
+            id: 2,
+            title: language === 'en' ? "Quality Healthcare" : "মানসম্মত স্বাস্থ্যসেবা",
+            subtitle: language === 'en' ? "Expert Doctors & Modern Facilities" : "বিশেষজ্ঞ ডাক্তার এবং আধুনিক সুবিধা",
+            description: language === 'en' ? "Access quality medical care from experienced specialists in our well-equipped hospital." : "আমাদের আধুনিক হাসপাতালে অভিজ্ঞ বিশেষজ্ঞ ডাক্তারদের কাছ থেকে মানসম্মত চিকিৎসা সেবা নিন।",
+            cta: language === 'en' ? "Our Services" : "আমাদের সেবাসমূহ",
+            ctaLink: "/medical-services",
+            bgGradient: "from-teal-600 via-emerald-600 to-green-500",
+        },
+        {
+            id: 3,
+            title: language === 'en' ? "Welfare Programs" : "কল্যাণ কার্যক্রম",
+            subtitle: language === 'en' ? "Supporting Our Members" : "আমাদের সদস্যদের সহায়তা",
+            description: language === 'en' ? "Scholarships, medical aid, emergency support, and more for our valued members." : "আমাদের সম্মানিত সদস্যদের জন্য শিক্ষাবৃত্তি, চিকিৎসা সহায়তা, জরুরি সহায়তা এবং আরও অনেক কিছু।",
+            cta: language === 'en' ? "View Programs" : "কার্যক্রম দেখুন",
+            ctaLink: "/welfare",
+            bgGradient: "from-green-600 via-emerald-500 to-teal-600",
+        },
+        {
+            id: 4,
+            title: language === 'en' ? "Join Our Community" : "আমাদের সাথে যুক্ত হোন",
+            subtitle: language === 'en' ? "Become a Member Today" : "আজই সদস্য হোন",
+            description: language === 'en' ? "Join over 12,000 members benefiting from our healthcare and welfare services." : "আমাদের স্বাস্থ্যসেবা এবং কল্যাণ কার্যক্রম থেকে উপকৃত ১২,০০০+ সদস্যের সাথে যোগ দিন।",
+            cta: language === 'en' ? "Register Now" : "রেজিস্ট্রেশন করুন",
+            ctaLink: "/register",
+            bgGradient: "from-cyan-600 via-teal-500 to-emerald-600",
+        },
+    ];
 
     useEffect(() => {
         if (isPaused) return;
@@ -96,8 +90,8 @@ export default function HeroSection() {
                 <div
                     key={slide.id}
                     className={`absolute inset-0 transition-all duration-700 ease-out ${index === currentSlide
-                            ? "opacity-100 scale-100"
-                            : "opacity-0 scale-105"
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-105"
                         }`}
                 >
                     <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient}`} />
@@ -133,21 +127,18 @@ export default function HeroSection() {
                             <div
                                 key={slide.id}
                                 className={`transition-all duration-700 ${index === currentSlide
-                                        ? "opacity-100 translate-y-0"
-                                        : "opacity-0 translate-y-8 absolute pointer-events-none"
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 translate-y-8 absolute pointer-events-none"
                                     }`}
                             >
                                 {index === currentSlide && (
                                     <>
                                         <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-4 animate-fadeInUp">
-                                            {slide.subtitleBn}
+                                            {slide.subtitle}
                                         </span>
                                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
                                             {slide.title}
                                         </h1>
-                                        <p className="text-xl md:text-2xl text-white/90 mb-2 font-medium">
-                                            {slide.titleBn}
-                                        </p>
                                         <p className="text-base md:text-lg text-white/80 mb-8 max-w-lg">
                                             {slide.description}
                                         </p>
@@ -163,7 +154,7 @@ export default function HeroSection() {
                                                 href="/contact"
                                                 className="inline-flex items-center gap-2 px-8 py-4 bg-white/20 text-white rounded-xl font-semibold text-lg hover:bg-white/30 transition-all backdrop-blur-sm border border-white/20"
                                             >
-                                                Contact Us
+                                                {language === 'en' ? 'Contact Us' : 'যোগাযোগ করুন'}
                                             </Link>
                                         </div>
                                     </>
@@ -180,8 +171,8 @@ export default function HeroSection() {
                                     key={slide.id}
                                     onClick={() => goToSlide(index)}
                                     className={`text-left p-4 rounded-xl transition-all duration-300 ${index === currentSlide
-                                            ? "bg-white/30 backdrop-blur-md scale-105 shadow-lg"
-                                            : "bg-white/10 backdrop-blur-sm hover:bg-white/20"
+                                        ? "bg-white/30 backdrop-blur-md scale-105 shadow-lg"
+                                        : "bg-white/10 backdrop-blur-sm hover:bg-white/20"
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
@@ -229,8 +220,8 @@ export default function HeroSection() {
                         className="relative"
                     >
                         <span className={`block transition-all duration-300 ${index === currentSlide
-                                ? "w-12 h-3 bg-white rounded-full"
-                                : "w-3 h-3 bg-white/50 rounded-full hover:bg-white/70"
+                            ? "w-12 h-3 bg-white rounded-full"
+                            : "w-3 h-3 bg-white/50 rounded-full hover:bg-white/70"
                             }`} />
                         {index === currentSlide && (
                             <span className="absolute inset-0 bg-white/50 rounded-full animate-ping" />

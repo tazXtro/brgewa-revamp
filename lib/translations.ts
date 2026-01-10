@@ -1,0 +1,131 @@
+export const translations = {
+    en: {
+        navbar: {
+            home: "Home",
+            about: "About Us",
+            services: "Services",
+            feesAndTests: "Fees & Tests",
+            doctors: "Doctors",
+            news: "News & Events",
+            contact: "Contact",
+            donate: "Donate Now",
+        },
+        hero: {
+            welcome: "Welcome to BRGEWA Hospital",
+            subtitle: "Providing advanced healthcare with compassion and excellence for over 20 years.",
+            emergency: "Emergency Service",
+            appointment: "Book Appointment",
+            hotline: "24/7 Hotline: 01711-000000",
+            announcements: [
+                "📢 Free Health Camp - 15 January 2026",
+                "🎓 Scholarship Applications 2026 Open",
+                "🏥 New Cardiology Unit Opened",
+                "📞 Helpline: 222240189, 222240190",
+                "🗓️ Annual General Meeting - 20 January 2026",
+            ]
+        },
+        services: {
+            title: "Our Medical Services",
+            subtitle: "Comprehensive healthcare solutions for you and your family.",
+            emergency: "24/7 Emergency",
+            emergency_desc: "Round-the-clock emergency care with state-of-the-art facilities.",
+            cardiology: "Cardiology",
+            cardiology_desc: "Expert heart care including diagnostics and cardiac procedures.",
+            orthopedics: "Orthopedics",
+            orthopedics_desc: "Advanced treatment for bone and joint conditions.",
+            neurology: "Neurology",
+            neurology_desc: "Specialized care for brain and nervous system disorders.",
+            pediatrics: "Pediatrics",
+            pediatrics_desc: "Comprehensive healtcare for infants, children, and adolescents.",
+            gynecology: "Gynecology",
+            gynecology_desc: "Women's health services including maternity and reproductive care.",
+        },
+        stats: {
+            doctors: "Specialist Doctors",
+            patients: "Patients Served",
+            beds: "Hospital Beds",
+            experience: "Years Experience",
+        },
+        facilities: {
+            title: "Our Facilities",
+        },
+        doctors: {
+            title: "Meet Our Specialists",
+            subtitle: "Our team of experienced doctors is here to provide the best care.",
+        },
+        footer: {
+            about_us: "About BRGEWA",
+            about_desc: "A non-profit hospital dedicated to providing affordable healthcare to the community.",
+            quick_links: "Quick Links",
+            contact_us: "Contact Us",
+            address: "Brahmanbaria, Bangladesh",
+            rights: "© 2026 BRGEWA Hospital. All rights reserved.",
+        },
+    },
+    bn: {
+        navbar: {
+            home: "হোম",
+            about: "আমাদের সম্পর্কে",
+            services: "সেবাসমূহ",
+            feesAndTests: "ফি ও পরীক্ষা",
+            doctors: "ডাক্তারগণ",
+            news: "খবর ও ইভেন্ট",
+            contact: "যোগাযোগ",
+            donate: "দান করুন",
+        },
+        hero: {
+            welcome: "বিআরজিইডাব্লিউএ হাসপাতালে স্বাগতম",
+            subtitle: "২০ বছরেরও বেশি সময় ধরে মমতা ও শ্রেষ্ঠত্বের সাথে উন্নত স্বাস্থ্যসেবা প্রদান করছি।",
+            emergency: "জরুরি সেবা",
+            appointment: "অ্যাপয়েন্টমেন্ট নিন",
+            hotline: "২৪/৭ হটলাইন: ০১৭১১-০০০০০০",
+            announcements: [
+                "📢 বিনামূল্যে স্বাস্থ্য ক্যাম্প - ১৫ জানুয়ারি ২০২৬",
+                "🎓 ২০২৬ সালের শিক্ষাবৃত্তির আবেদন গ্রহণ চলছে",
+                "🏥 নতুন হৃদরোগ বিভাগ চালু হয়েছে",
+                "📞 হেল্পলাইন: ২২২২৪০১৮৯, ২২২২৪০১৯০",
+                "🗓️ বার্ষিক সাধারণ সভা - ২০ জানুয়ারি ২০২৬",
+            ]
+        },
+        services: {
+            title: "আমাদের চিকিৎসা সেবাসমূহ",
+            subtitle: "আপনার এবং আপনার পরিবারের জন্য সম্পূর্ণ স্বাস্থ্যসেবা সমাধান।",
+            emergency: "২৪/৭ জরুরি বিভাগ",
+            emergency_desc: "অত্যাধুনিক সুবিধাসহ সর্বক্ষণিক জরুরি চিকিৎসা সেবা।",
+            cardiology: "হৃদরোগ বিভাগ",
+            cardiology_desc: "ডায়াগনস্টিক এবং কার্ডিয়াক প্রসিডিউর সহ বিশেষজ্ঞ হার্ট কেয়ার।",
+            orthopedics: "অর্থোপেডিকস",
+            orthopedics_desc: "হাড় এবং জয়েন্টের উন্নত চিকিৎসা।",
+            neurology: "নিউরোলজি",
+            neurology_desc: "মস্তিষ্ক এবং স্নায়ুতন্ত্রের রোগের জন্য বিশেষায়িত সেবা।",
+            pediatrics: "শিশু বিভাগ",
+            pediatrics_desc: "নবজাতক, শিশু এবং কিশোরদের জন্য সম্পূর্ণ স্বাস্থ্যসেবা।",
+            gynecology: "গাইনোকোলজি",
+            gynecology_desc: "মাতৃত্ব এবং প্রজনন যত্ন সহ মহিলাদের স্বাস্থ্যসেবা।",
+        },
+        stats: {
+            doctors: "বিশেষজ্ঞ ডাক্তার",
+            patients: "রোগী সেবা",
+            beds: "হাসপাতাল বেড",
+            experience: "বছরের অভিজ্ঞতা",
+        },
+        facilities: {
+            title: "আমাদের সুবিধাসমূহ",
+        },
+        doctors: {
+            title: "আমাদের বিশেষজ্ঞদের সাথে পরিচিত হোন",
+            subtitle: "আমাদের অভিজ্ঞ ডাক্তারদের দল আপনাকে সর্বোত্তম সেবা দিতে প্রস্তুত।",
+        },
+        footer: {
+            about_us: "বিআরজিইডাব্লিউএ সম্পর্কে",
+            about_desc: "কমিউনিটির জন্য সাশ্রয়ী মূল্যের স্বাস্থ্যসেবা প্রদানে নিবেদিত একটি অলাভজনক হাসপাতাল।",
+            quick_links: "দ্রুত লিঙ্ক",
+            contact_us: "যোগাযোগ",
+            address: "ব্রাহ্মণবাড়িয়া, বাংলাদেশ",
+            rights: "© ২০২৬ বিআরজিইডাব্লিউএ হাসপাতাল। সর্বস্বত্ব সংরক্ষিত।",
+        },
+    },
+};
+
+export type Language = 'en' | 'bn';
+export type Translation = typeof translations.en;
