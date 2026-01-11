@@ -1,25 +1,31 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Facebook, Youtube, Clock } from "lucide-react";
-
-const quickLinks = [
-    { label: "About Us", href: "/about" },
-    { label: "Medical Services", href: "/medical-services" },
-    { label: "Our Doctors", href: "/doctors" },
-    { label: "Welfare Programs", href: "/welfare" },
-    { label: "Photo Gallery", href: "/gallery" },
-    { label: "Contact Us", href: "/contact" },
-];
-
-const services = [
-    { label: "General Medicine", href: "/medical-services" },
-    { label: "Cardiology", href: "/medical-services" },
-    { label: "Orthopedics", href: "/medical-services" },
-    { label: "Gynecology", href: "/medical-services" },
-    { label: "Eye Care", href: "/medical-services" },
-    { label: "Dental Care", href: "/medical-services" },
-];
+import { useLanguage } from "@/components/providers/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
+
+    const quickLinks = [
+        { label: t.footer.quickLinks.aboutUs, href: "/about" },
+        { label: t.footer.quickLinks.medicalServices, href: "/medical-services" },
+        { label: t.footer.quickLinks.ourDoctors, href: "/doctors" },
+        { label: t.footer.quickLinks.welfarePrograms, href: "/welfare" },
+        { label: t.footer.quickLinks.photoGallery, href: "/gallery" },
+        { label: t.footer.quickLinks.contactUs, href: "/contact" },
+    ];
+
+    const services = [
+        { label: t.footer.services.generalMedicine, href: "/medical-services" },
+        { label: t.footer.services.cardiology, href: "/medical-services" },
+        { label: t.footer.services.orthopedics, href: "/medical-services" },
+        { label: t.footer.services.gynecology, href: "/medical-services" },
+        { label: t.footer.services.eyeCare, href: "/medical-services" },
+        { label: t.footer.services.dentalCare, href: "/medical-services" },
+    ];
+
     return (
         <footer className="bg-gray-900 text-white">
             {/* Main Footer */}
@@ -28,16 +34,22 @@ export default function Footer() {
                     {/* About */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">B</span>
+                            <div className="w-12 h-14 rounded-xl overflow-hidden bg-white flex items-center justify-center p-1">
+                                <Image
+                                    src="/brgewa-logo.jpg"
+                                    alt="BRGEWA Logo"
+                                    width={48}
+                                    height={56}
+                                    className="object-contain w-full h-full"
+                                />
                             </div>
                             <div>
                                 <span className="font-bold text-xl">BRGEWA</span>
-                                <p className="text-xs text-gray-400">Hospital & Welfare</p>
+                                <p className="text-xs text-gray-400">{t.footer.hospitalWelfare}</p>
                             </div>
                         </div>
                         <p className="text-gray-400 mb-6 leading-relaxed">
-                            বাংলাদেশ অবসরপ্রাপ্ত সরকারী কর্মচারী কল্যাণ সমিতি - অবসরপ্রাপ্ত সরকারী কর্মচারী এবং তাদের পরিবারের সেবায় নিয়োজিত।
+                            {t.footer.about_desc}
                         </p>
                         <div className="flex items-center gap-3">
                             <a
@@ -57,7 +69,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6">Quick Links</h3>
+                        <h3 className="font-bold text-lg mb-6">{t.footer.quick_links}</h3>
                         <ul className="space-y-3">
                             {quickLinks.map((link) => (
                                 <li key={link.label}>
@@ -74,7 +86,7 @@ export default function Footer() {
 
                     {/* Services */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6">Medical Services</h3>
+                        <h3 className="font-bold text-lg mb-6">{t.footer.services.title}</h3>
                         <ul className="space-y-3">
                             {services.map((service) => (
                                 <li key={service.label}>
@@ -91,12 +103,12 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6">Contact Us</h3>
+                        <h3 className="font-bold text-lg mb-6">{t.footer.contact_us}</h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <MapPin size={20} className="text-primary flex-shrink-0 mt-1" />
                                 <span className="text-gray-400">
-                                    ৭৫/এ, রোড নং ৫/এ, ধানমন্ডি আ/এ, ঢাকা-১২০৯
+                                    {t.footer.fullAddress}
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
@@ -120,7 +132,7 @@ export default function Footer() {
                             <li className="flex items-center gap-3">
                                 <Clock size={20} className="text-primary flex-shrink-0" />
                                 <span className="text-gray-400">
-                                    Sun-Thu: 9AM - 5PM
+                                    {t.footer.officeHours}
                                 </span>
                             </li>
                         </ul>
@@ -132,9 +144,9 @@ export default function Footer() {
             <div className="border-t border-gray-800">
                 <div className="container mx-auto px-6 py-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-                        <p>© 2026 BRGEWA. All rights reserved.</p>
+                        <p>{t.footer.rights}</p>
                         <p>
-                            Developed by{" "}
+                            {t.footer.developedBy}{" "}
                             <a href="#" className="text-primary hover:text-accent transition-colors">
                                 XYZ IT Solution
                             </a>

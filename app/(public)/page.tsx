@@ -33,42 +33,42 @@ export default function Home() {
     },
     {
       id: "2",
-      title: "Free Health Camp 2025",
-      titleBn: "বিনামূল্যে স্বাস্থ্য ক্যাম্প ২০২৫",
+      title: t.landing.heroImages.freeHealthCamp,
+      titleBn: t.landing.heroImages.freeHealthCamp,
       category: "Events",
     },
     {
       id: "3",
-      title: "Scholarship Distribution Ceremony",
-      titleBn: "শিক্ষাবৃত্তি বিতরণ অনুষ্ঠান",
+      title: t.landing.heroImages.scholarshipDistribution,
+      titleBn: t.landing.heroImages.scholarshipDistribution,
       category: "Welfare",
     },
     {
       id: "4",
-      title: "Annual General Meeting 2025",
-      titleBn: "বার্ষিক সাধারণ সভা ২০২৫",
+      title: t.landing.heroImages.annualMeeting,
+      titleBn: t.landing.heroImages.annualMeeting,
       category: "Meetings",
     },
   ];
 
   const facilityPhotos = [
-    { id: "1", title: "Reception Area", titleBn: "রিসেপশন এরিয়া", category: "Facility" },
-    { id: "2", title: "Consultation Room", titleBn: "পরামর্শ কক্ষ", category: "Facility" },
-    { id: "3", title: "Waiting Lounge", titleBn: "অপেক্ষা কক্ষ", category: "Facility" },
-    { id: "4", title: "Laboratory", titleBn: "ল্যাবরেটরি", category: "Facility" },
-    { id: "5", title: "Pharmacy", titleBn: "ফার্মেসি", category: "Facility" },
-    { id: "6", title: "Medical Store", titleBn: "মেডিকেল স্টোর", category: "Facility" },
+    { id: "1", title: t.landing.facilityPhotos.receptionArea, titleBn: t.landing.facilityPhotos.receptionArea, category: "Facility" },
+    { id: "2", title: t.landing.facilityPhotos.consultationRoom, titleBn: t.landing.facilityPhotos.consultationRoom, category: "Facility" },
+    { id: "3", title: t.landing.facilityPhotos.waitingLounge, titleBn: t.landing.facilityPhotos.waitingLounge, category: "Facility" },
+    { id: "4", title: t.landing.facilityPhotos.laboratory, titleBn: t.landing.facilityPhotos.laboratory, category: "Facility" },
+    { id: "5", title: t.landing.facilityPhotos.pharmacy, titleBn: t.landing.facilityPhotos.pharmacy, category: "Facility" },
+    { id: "6", title: t.landing.facilityPhotos.medicalStore, titleBn: t.landing.facilityPhotos.medicalStore, category: "Facility" },
   ];
 
   const eventPhotos = [
-    { id: "1", title: "Health Camp 2025", titleBn: "স্বাস্থ্য ক্যাম্প ২০২৫", category: "Health Camp" },
-    { id: "2", title: "Scholarship Award", titleBn: "শিক্ষাবৃত্তি প্রদান", category: "Welfare" },
-    { id: "3", title: "Committee Meeting", titleBn: "কমিটি সভা", category: "Meeting" },
-    { id: "4", title: "Cultural Program", titleBn: "সাংস্কৃতিক অনুষ্ঠান", category: "Event" },
-    { id: "5", title: "Blood Donation", titleBn: "রক্তদান কর্মসূচি", category: "Health Camp" },
-    { id: "6", title: "Eye Camp", titleBn: "চক্ষু ক্যাম্প", category: "Health Camp" },
-    { id: "7", title: "Eid Reunion", titleBn: "ঈদ মিলনমেলা", category: "Event" },
-    { id: "8", title: "Independence Day", titleBn: "স্বাধীনতা দিবস", category: "Event" },
+    { id: "1", title: t.landing.eventPhotos.healthCamp, titleBn: t.landing.eventPhotos.healthCamp, category: "Health Camp" },
+    { id: "2", title: t.landing.eventPhotos.scholarshipAward, titleBn: t.landing.eventPhotos.scholarshipAward, category: "Welfare" },
+    { id: "3", title: t.landing.eventPhotos.committeeMeeting, titleBn: t.landing.eventPhotos.committeeMeeting, category: "Meeting" },
+    { id: "4", title: t.landing.eventPhotos.culturalProgram, titleBn: t.landing.eventPhotos.culturalProgram, category: "Event" },
+    { id: "5", title: t.landing.eventPhotos.bloodDonation, titleBn: t.landing.eventPhotos.bloodDonation, category: "Health Camp" },
+    { id: "6", title: t.landing.eventPhotos.eyeCamp, titleBn: t.landing.eventPhotos.eyeCamp, category: "Health Camp" },
+    { id: "7", title: t.landing.eventPhotos.eidReunion, titleBn: t.landing.eventPhotos.eidReunion, category: "Event" },
+    { id: "8", title: t.landing.eventPhotos.independenceDay, titleBn: t.landing.eventPhotos.independenceDay, category: "Event" },
   ];
 
   return (
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <ImageCarousel
             images={heroImages}
-            title={language === 'en' ? "Latest Highlights" : "সর্বশেষ হাইলাইটস"}
+            title={t.landing.latestHighlights}
             titleBn="" // Not needed if we handle title dynamically
           />
         </div>
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <PhotoScroll
             photos={eventPhotos}
-            title={language === 'en' ? "Events & Programs" : "অনুষ্ঠান ও কার্যক্রম"}
+            title={t.landing.eventsAndPrograms}
             titleBn=""
           />
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, Mail, MapPin, ChevronDown, Globe } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 
@@ -28,19 +29,15 @@ export default function Navbar() {
             label: t.navbar.about,
             href: "/about",
             children: [
-                { label: language === 'en' ? "History" : "সমিতির ইতিহাস", href: "/about?section=history" },
-                { label: language === 'en' ? "Mission & Vision" : "লক্ষ্য ও উদ্দেশ্য", href: "/about?section=mission" },
-                { label: language === 'en' ? "Executive Committee" : "কার্যনির্বাহী কমিটি", href: "/about?section=committee" },
-                { label: language === 'en' ? "Constitution" : "সমিতির গঠনতন্ত্র", href: "/about?section=constitution" },
+                { label: t.navbar.history, href: "/about?section=history" },
+                { label: t.navbar.mission, href: "/about?section=mission" },
+                { label: t.navbar.committee, href: "/about?section=committee" },
+                { label: t.navbar.constitution, href: "/about?section=constitution" },
             ],
         },
         {
             label: t.navbar.services,
             href: "/medical-services",
-            children: [
-                { label: language === 'en' ? "Fees and Tests" : "ফি ও পরীক্ষা", href: "/medical-services" },
-                { label: language === 'en' ? "Doctors List" : "চিকিৎসক তালিকা", href: "/doctors" },
-            ],
         },
         {
             label: t.navbar.doctors,
@@ -98,8 +95,14 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">B</span>
+                            <div className="w-12 h-14 rounded-xl overflow-hidden bg-white flex items-center justify-center p-1">
+                                <Image
+                                    src="/brgewa-logo.jpg"
+                                    alt="BRGEWA Logo"
+                                    width={48}
+                                    height={56}
+                                    className="object-contain w-full h-full"
+                                />
                             </div>
                             <div className="hidden sm:flex flex-col">
                                 <span className="font-bold text-primary text-xl leading-tight">
@@ -157,7 +160,7 @@ export default function Navbar() {
                                 href="/dashboard"
                                 className="px-5 py-2.5 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
                             >
-                                Member Portal
+                                {t.navbar.memberPortal}
                             </Link>
                         </div>
 
@@ -181,7 +184,7 @@ export default function Navbar() {
                                     className="flex items-center gap-2 bg-secondary px-3 py-1.5 rounded-lg text-sm font-medium text-primary"
                                 >
                                     <Globe size={16} />
-                                    <span>{language === 'en' ? 'বাংলায় দেখুন' : 'Switch to English'}</span>
+                                    <span>{language === 'en' ? t.navbar.switchToBangla : t.navbar.switchToEnglish}</span>
                                 </button>
                             </div>
                             {navItems.map((item) => (
@@ -214,7 +217,7 @@ export default function Navbar() {
                                 className="block px-4 py-3 rounded-xl bg-primary text-white font-semibold text-center"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
-                                Member Portal
+                                {t.navbar.memberPortal}
                             </Link>
                         </div>
                     </div>

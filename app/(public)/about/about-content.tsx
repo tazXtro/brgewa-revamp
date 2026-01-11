@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useLanguage } from '@/components/providers/LanguageContext';
 import AboutNav from '@/components/about/about-nav';
 import History from '@/components/about/history';
 import Mission from '@/components/about/mission';
@@ -13,6 +14,7 @@ import Secretaries from '@/components/about/secretaries';
 export default function AboutPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    const { t } = useLanguage();
     const currentSection = searchParams.get('section') || 'history';
 
     const handleSectionChange = (id: string) => {
@@ -45,12 +47,12 @@ export default function AboutPageContent() {
                 <aside className="w-full md:w-64 lg:w-72 shrink-0">
                     <div className="sticky top-24 bg-white dark:bg-slate-950 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div className="mb-4 px-2">
-                            <h2 className="text-lg font-bold text-slate-900 dark:text-white">সমিতি পরিচিতি</h2>
-                            <p className="text-sm text-slate-500 dark:text-slate-400">তথ্য ও ইতিহাস</p>
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t.about.sidebarTitle}</h2>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">{t.about.sidebarSubtitle}</p>
                         </div>
-                        <AboutNav 
-                            activeSection={currentSection} 
-                            onSectionChange={handleSectionChange} 
+                        <AboutNav
+                            activeSection={currentSection}
+                            onSectionChange={handleSectionChange}
                         />
                     </div>
                 </aside>

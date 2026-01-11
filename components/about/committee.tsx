@@ -1,17 +1,22 @@
+'use client';
 
 import React from 'react';
 import { Users, FileText, Download, UserCheck } from 'lucide-react';
+import { useLanguage } from '@/components/providers/LanguageContext';
 
 export default function Committee() {
+    const { t } = useLanguage();
+    const committee = t.about.committee;
+
     return (
         <div className="space-y-6 animate-in fade-in duration-500">
             <div className="space-y-2">
-                <h2 className="text-3xl font-bold text-primary">কমিটি</h2>
+                <h2 className="text-3xl font-bold text-primary">{committee.title}</h2>
                 <div className="h-1 w-20 bg-primary/20 rounded-full"></div>
             </div>
 
             <p className="text-slate-600 dark:text-slate-400">
-                বাংলাদেশ অবসরপ্রাপ্ত সরকারী কর্মচারী কল্যাণ সমিতির বর্তমান কার্যনির্বাহী কমিটি এবং বিভিন্ন উপ-কমিটির তালিকা নিচে প্রদান করা হলো। বিস্তারিত দেখতে বা ডাউনলোড করতে লিংকে ক্লিক করুন।
+                {committee.intro}
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -26,9 +31,9 @@ export default function Committee() {
                             <Users className="h-6 w-6" />
                         </div>
 
-                        <h3 className="text-xl font-bold mb-2">কার্যনির্বাহী কমিটি</h3>
+                        <h3 className="text-xl font-bold mb-2">{committee.executive.title}</h3>
                         <p className="text-slate-500 text-sm mb-6 flex-grow">
-                            বর্তমান কার্যনির্বাহী কমিটির পূর্ণাঙ্গ তালিকা এবং পদবীবিন্যাস।
+                            {committee.executive.description}
                         </p>
 
                         <a
@@ -38,7 +43,7 @@ export default function Committee() {
                             className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm self-start"
                         >
                             <Download className="h-4 w-4" />
-                            তালিকা দেখুন
+                            {committee.executive.button}
                         </a>
                     </div>
                 </div>
@@ -54,9 +59,9 @@ export default function Committee() {
                             <UserCheck className="h-6 w-6" />
                         </div>
 
-                        <h3 className="text-xl font-bold mb-2">উপ-কমিটি</h3>
+                        <h3 className="text-xl font-bold mb-2">{committee.subCommittee.title}</h3>
                         <p className="text-slate-500 text-sm mb-6 flex-grow">
-                            বিভিন্ন বিভাগীয় ও কর্মভিত্তিক উপ-কমিটির সদস্যদের তালিকা।
+                            {committee.subCommittee.description}
                         </p>
 
                         <a
@@ -66,7 +71,7 @@ export default function Committee() {
                             className="inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm self-start"
                         >
                             <Download className="h-4 w-4" />
-                            তালিকা দেখুন
+                            {committee.subCommittee.button}
                         </a>
                     </div>
                 </div>

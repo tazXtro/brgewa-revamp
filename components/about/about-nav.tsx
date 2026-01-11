@@ -1,21 +1,9 @@
+"use client";
+
 import React from 'react';
 import { History, Target, Users, Book, UserCheck, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-interface NavItem {
-    id: string;
-    label: string;
-    icon: React.ElementType;
-}
-
-const navItems: NavItem[] = [
-    { id: 'history', label: 'সমিতির ইতিহাস', icon: History },
-    { id: 'mission', label: 'লক্ষ্য ও উদ্দেশ্য', icon: Target },
-    { id: 'committee', label: 'কমিটি', icon: Users },
-    { id: 'constitution', label: 'সমিতির গঠনতন্ত্র', icon: Book },
-    { id: 'presidents', label: 'সভাপতি ও প্রশাসকগণ', icon: UserCheck },
-    { id: 'secretaries', label: 'মহাসচিবগণ', icon: UserCheck },
-];
+import { useLanguage } from '@/components/providers/LanguageContext';
 
 interface AboutNavProps {
     activeSection: string;
@@ -23,6 +11,17 @@ interface AboutNavProps {
 }
 
 export default function AboutNav({ activeSection, onSectionChange }: AboutNavProps) {
+    const { t } = useLanguage();
+
+    const navItems = [
+        { id: 'history', label: t.navbar.history, icon: History },
+        { id: 'mission', label: t.navbar.mission, icon: Target },
+        { id: 'committee', label: t.navbar.committee, icon: Users },
+        { id: 'constitution', label: t.navbar.constitution, icon: Book },
+        { id: 'presidents', label: t.about.presidents.title, icon: UserCheck },
+        { id: 'secretaries', label: t.about.secretaries.title, icon: UserCheck },
+    ];
+
     return (
         <nav className="space-y-1">
             {navItems.map((item) => {
